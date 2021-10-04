@@ -19,39 +19,31 @@ public class GameValidator {
 
     public boolean isValidate() {
         if (isEmpty()) {
-            return false;
+            return true;
         }
 
-        if (isContains()) {
-            return false;
-        }
-
-        return true;
+        return isNotContains();
     }
 
     private boolean isEmpty() {
-        return (balls.isEmpty() || balls.size() == 0);
+        return (balls.isEmpty() || balls.size() <= 0);
     }
 
-    private boolean isContains() {
-        boolean contains = false;
+    private boolean isNotContains() {
+        boolean notContains = true;
 
         for (Ball ball : balls) {
-            contains = isEquals(ball, contains);
+            notContains = isNotEquals(ball, notContains);
         }
 
-        return contains;
+        return notContains;
     }
 
-    private boolean isEquals(Ball ball, boolean contains) {
-        if (contains) {
-            return true;
+    private boolean isNotEquals(Ball ball, boolean notContains) {
+        if (!notContains) {
+            return false;
         }
 
-        if (ball.equals(newBall)) {
-            return true;
-        }
-
-        return false;
+        return !ball.equals(newBall);
     }
 }
