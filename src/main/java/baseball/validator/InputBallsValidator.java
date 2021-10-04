@@ -8,9 +8,9 @@ public class InputBallsValidator {
     public static boolean isValidate(String numbers) {
 
         if (isNotEmpty(numbers) &&
-            isValidSize(numbers) &&
-            isNumeric(numbers) &&
-            isNotContainsZero(numbers)) {
+                isValidSize(numbers) &&
+                isNumeric(numbers) &&
+                isNotContainsZero(numbers)) {
 
             return true;
         }
