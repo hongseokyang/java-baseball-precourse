@@ -38,4 +38,13 @@ public class Ball {
     public int getNumber() {
         return number;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof Ball) {
+            return ((Ball) o).number == this.number;
+        }
+
+        return false;
+    }
 }
