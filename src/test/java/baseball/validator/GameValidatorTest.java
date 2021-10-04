@@ -19,7 +19,7 @@ class GameValidatorTest {
         Ball newBall = new Ball(5);
         GameValidator validator = new GameValidator(balls, newBall);
 
-        assertThat(validator.isValidate()).isEqualTo(false);
+        assertThat(validator.isValidate()).isTrue();
     }
 
     @Test
@@ -31,7 +31,7 @@ class GameValidatorTest {
 
         GameValidator validator = new GameValidator(balls, newBall);
 
-        assertThat(validator.isValidate()).isEqualTo(false);
+        assertThat(validator.isValidate()).isFalse();
     }
 
     @Test
@@ -43,6 +43,6 @@ class GameValidatorTest {
 
         GameValidator validator = new GameValidator(balls, newBall);
 
-        assertThat(validator.isValidate()).isEqualTo(true);
+        assertThat(validator.isValidate()).isTrue();
     }
 }
