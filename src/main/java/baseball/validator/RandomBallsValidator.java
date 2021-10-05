@@ -4,15 +4,15 @@ import baseball.domain.baseball.Ball;
 
 import java.util.List;
 
-public class GameValidator {
+public class RandomBallsValidator {
 
     private List<Ball> balls;
     private Ball newBall;
 
-    public GameValidator() {
+    public RandomBallsValidator() {
     }
 
-    public GameValidator(List<Ball> balls, Ball newBall) {
+    public RandomBallsValidator(List<Ball> balls, Ball newBall) {
         this.balls = balls;
         this.newBall = newBall;
     }

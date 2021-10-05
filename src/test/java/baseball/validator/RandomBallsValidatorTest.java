@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class GameValidatorTest {
+class RandomBallsValidatorTest {
 
     List<Ball> balls = new ArrayList<>();
 
@@ -17,7 +17,7 @@ class GameValidatorTest {
     @DisplayName("리스트가 비어있는지 확인하기")
     void isEmpty() {
         Ball newBall = new Ball(5);
-        GameValidator validator = new GameValidator(balls, newBall);
+        RandomBallsValidator validator = new RandomBallsValidator(balls, newBall);
 
         assertThat(validator.isValidate()).isTrue();
     }
@@ -29,7 +29,7 @@ class GameValidatorTest {
         balls.add(new Ball(2));
         Ball newBall = new Ball(2);
 
-        GameValidator validator = new GameValidator(balls, newBall);
+        RandomBallsValidator validator = new RandomBallsValidator(balls, newBall);
 
         assertThat(validator.isValidate()).isFalse();
     }
@@ -41,7 +41,7 @@ class GameValidatorTest {
         balls.add(new Ball(2));
         Ball newBall = new Ball(5);
 
-        GameValidator validator = new GameValidator(balls, newBall);
+        RandomBallsValidator validator = new RandomBallsValidator(balls, newBall);
 
         assertThat(validator.isValidate()).isTrue();
     }
