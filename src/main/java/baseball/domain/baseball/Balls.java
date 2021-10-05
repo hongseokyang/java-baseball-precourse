@@ -1,6 +1,6 @@
 package baseball.domain.baseball;
 
-import baseball.validator.GameValidator;
+import baseball.validator.RandomBallsValidator;
 import baseball.validator.InputBallsValidator;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class Balls {
     private void setPlayerBalls(char[] numbers) {
         int i = 0;
         while (balls.size() != SIZE) {
-            add(new Ball(numbers[i++]));
+            balls.add(new Ball(numbers[i++]));
         }
     }
 
@@ -40,7 +40,7 @@ public class Balls {
     }
 
     private void add(Ball ball) {
-        GameValidator validator = new GameValidator(balls, ball);
+        RandomBallsValidator validator = new RandomBallsValidator(balls, ball);
 
         if (!validator.isValidate()) {
             return;
