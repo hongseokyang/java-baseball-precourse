@@ -3,45 +3,38 @@ package baseball.validator;
 import baseball.domain.baseball.Balls;
 import baseball.view.OutputView;
 
-public class InputBallsValidator {
+import java.util.HashSet;
+import java.util.Set;
+
+public class InputBallsValidator extends InputValidator {
 
     public static boolean isValidate(String numbers) {
 
         if (isNotEmpty(numbers) &&
-                isValidSize(numbers) &&
+                isValidSize(numbers, Balls.SIZE) &&
                 isNumeric(numbers) &&
-                isNotContainsZero(numbers)) {
+                isNotContainsZero(numbers) &&
+                isNotDuplicated(numbers)) {
 
             return true;
         }
 
-        printErrorMessage();
+        printErrorMessage(OutputView.ERROR_MESSAGE);
         return false;
     }
 
-    private static void printErrorMessage() {
-        OutputView.printError(OutputView.ERROR_MESSAGE);
-    }
+    private static boolean isNotDuplicated(String numbers) {
+        char[] chars = numbers.toCharArray();
+        Set<Character> charsSet = new HashSet<>();
 
-    private static boolean isNotEmpty(String numbers) {
-        return (numbers != null && !numbers.isEmpty());
-    }
+        for (char number : chars) {
+            charsSet.add(number);
+        }
 
-    private static boolean isValidSize(String numbers) {
-        return (numbers.length() == Balls.SIZE);
-    }
-
-    private static boolean isNumeric(String numbers) {
-        try {
-            Integer.parseInt(numbers);
-        } catch (NumberFormatException e) {
+        if (Balls.SIZE != charsSet.size()) {
             return false;
         }
 
         return true;
-    }
-
-    private static boolean isNotContainsZero(String numbers) {
-        return !(numbers.contains("0"));
     }
 }

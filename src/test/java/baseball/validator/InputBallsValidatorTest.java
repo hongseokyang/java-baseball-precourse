@@ -13,6 +13,7 @@ class InputBallsValidatorTest {
             "abc:false",
             "12:false",
             "012:false",
+            "111:false",
             "123:true"
     }, delimiter = ':')
     @DisplayName("잘못된 값을 입력한 경우")
